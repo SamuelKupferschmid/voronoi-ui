@@ -12,14 +12,14 @@ namespace VoronoiUI
 {
     public partial class Main : Form
     {
-        private List<Point> _points = new List<Point>();
+        private List<Event> _points = new List<Event>();
         private Bitmap _image;
         private Voronoi _voronoi;
 
         public Main()
         {
             InitializeComponent();
-            _voronoi = new Voronoi(Distance.Euclidean);
+            _voronoi = new Voronoi(Geometry.Euclidean);
         }
 
         protected override void OnLoad(EventArgs e)
@@ -31,7 +31,7 @@ namespace VoronoiUI
         private void canvas_Click(object sender, EventArgs e)
         {
             var ev = e as MouseEventArgs;
-            _points.Add(new Point(ev.X,ev.Y));
+            _points.Add(new Event(ev.X,ev.Y, EventType.Site));
             DrawCanvas();
 
         }
@@ -49,7 +49,7 @@ namespace VoronoiUI
 
                 foreach (var e in edges)
                 {
-                    g.DrawLine(Pens.Blue, (float)e.Start.X,(float)e.Start.Y,(float)e.End.X,(float)e.End.Y);
+                    g.DrawLine(Pens.Blue, (float)e.X1,(float)e.Y1,(float)e.X2,(float)e.Y2);
                 }
             }
             canvas.Invalidate();

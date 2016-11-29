@@ -8,30 +8,31 @@ namespace VoronoiUI
 {
     public class Voronoi
     {
-        public Func<Point, Point, double> GetDistance { get; private set; }
-          
-        public Voronoi(Distance distance)
+        public Func<Event, Event, double> GetDistance { get; private set; }
+
+        public Voronoi(Geometry geometry)
         {
-            if (distance == Distance.Euclidean)
+            if (geometry == Geometry.Euclidean)
                 GetDistance = GetEuclideanDist;
             else
                 GetDistance = GetManhattanDist;
         }
 
-        public IEnumerable<Edge> CalcEdges(IEnumerable<Point> points)
+        public IEnumerable<Edge> CalcEdges(IEnumerable<Event> points)
         {
+            var events = new PriorityQueue<Event>(points, (x, y) => -1);
             yield break;
-        } 
+        }
 
 
-        public static double GetEuclideanDist(Point p1, Point p2)
+        public static double GetEuclideanDist(Event p1, Event p2)
             => Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2));
 
-        public static double GetManhattanDist(Point p1, Point p2)
+        public static double GetManhattanDist(Event p1, Event p2)
             => Math.Abs(p2.X - p1.X) + Math.Abs(p2.Y - p1.Y);
     }
 
-    public enum Distance
+    public enum Geometry
     {
         Manhattan,
         Euclidean
