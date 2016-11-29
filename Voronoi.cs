@@ -10,9 +10,9 @@ namespace VoronoiUI
     {
         public Func<Point, Point, double> GetDistance { get; private set; }
           
-        public Voronoi(Distance distance)
+        public Voronoi(Geometry geometry)
         {
-            if (distance == Distance.Euclidean)
+            if (geometry == Geometry.Euclidean)
                 GetDistance = GetEuclideanDist;
             else
                 GetDistance = GetManhattanDist;
@@ -31,7 +31,7 @@ namespace VoronoiUI
             => Math.Abs(p2.X - p1.X) + Math.Abs(p2.Y - p1.Y);
     }
 
-    public enum Distance
+    public enum Geometry
     {
         Manhattan,
         Euclidean
