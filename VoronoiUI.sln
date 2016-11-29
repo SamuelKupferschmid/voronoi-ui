@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiUI", "VoronoiUI.csproj", "{44587C1A-B9AC-43FC-BE92-A31127F0F378}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiUI.Tests", "VoronoiUITests\VoronoiUI.Tests.csproj", "{2013260D-E8AB-48D8-A4F4-238E12440CA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{44587C1A-B9AC-43FC-BE92-A31127F0F378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44587C1A-B9AC-43FC-BE92-A31127F0F378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44587C1A-B9AC-43FC-BE92-A31127F0F378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2013260D-E8AB-48D8-A4F4-238E12440CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2013260D-E8AB-48D8-A4F4-238E12440CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2013260D-E8AB-48D8-A4F4-238E12440CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2013260D-E8AB-48D8-A4F4-238E12440CA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
