@@ -9,16 +9,15 @@ namespace VoronoiUI
 {
     public class PriorityQueue<T>
     {
-        private Comparison<T> _comparison;
-        private List<T> _innerList;
+        private readonly Comparison<T> _comparison;
+        private readonly List<T> _innerList;
 
         public PriorityQueue(Comparison<T> comparison)
         {
             _comparison = comparison;
-            _innerList = new List<T>();
 
             //index 0 is unused for simpler handling of array
-            _innerList.Add(default(T));
+            _innerList = new List<T> { default(T) };
         }
 
         public PriorityQueue(IEnumerable<T> source, Comparison<T> comparison)
@@ -52,6 +51,8 @@ namespace VoronoiUI
             return _innerList[1];
         }
 
+        public bool IsEmpty => _innerList.Count == 1;
+
         private void Swim(int i)
         {
             while (i > 1 && IsLess(i / 2, i))
@@ -63,16 +64,16 @@ namespace VoronoiUI
 
         private void Sink(int i)
         {
-            var size = _innerList.Count;
+            var size = _innerList.Count - 1;
 
-            var j = 2*i;
+            var j = 2 * i;
             while (j <= size)
             {
-                if (j < size && IsLess(j, j++))
+                if (j < size && IsLess(j, j + 1))
                     j++;
-                if(!IsLess(i,j))
+                if (!IsLess(i, j))
                     break;
-                Swap(i,j);
+                Swap(i, j);
             }
         }
 
