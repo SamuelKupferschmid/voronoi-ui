@@ -82,5 +82,14 @@ namespace VoronoiUI.Tests
             Assert.AreEqual(2,q.Dequeue());
             Assert.AreEqual(1,q.Dequeue());
         }
+
+        [TestMethod]
+        public void KeepOrderIfPriorityIsFine()
+        {
+            var q = new PriorityQueue<int>(new int[] { 3 , 2, 1 }, (x, y) => x - y);
+            Assert.AreEqual(3,q.Dequeue());
+            Assert.AreEqual(2,q.Dequeue());
+            Assert.AreEqual(1,q.Dequeue());
+        }
     }
 }
