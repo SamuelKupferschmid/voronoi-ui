@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beachline.cs" />
+    <Compile Include="BinarySearchTree.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventType.cs" />
