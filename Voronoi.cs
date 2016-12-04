@@ -20,10 +20,21 @@ namespace VoronoiUI
 
         public IEnumerable<Edge> CalcEdges(IEnumerable<Event> points)
         {
-            var events = new PriorityQueue<Event>(points, (x, y) => -1);
+            var events = new PriorityQueue<Event>(points, (e1, e2) => (int)(e1.X - e2.X));
+            var beachline = new Beachline(events);
+
+            while (!events.IsEmpty)
+            {
+                var e = events.Dequeue();
+
+                if (e.Type == EventType.Site)
+                    beachline.Add(e);
+                else
+                    beachline.Remove(e);
+
+            }
             yield break;
         }
-
 
         public static double GetEuclideanDist(Event p1, Event p2)
             => Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2));

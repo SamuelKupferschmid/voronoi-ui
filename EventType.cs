@@ -3,6 +3,6 @@
     public enum EventType
     {
         Site,
-        Circle
+        Parabola
     }
 }
